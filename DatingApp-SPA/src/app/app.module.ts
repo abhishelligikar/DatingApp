@@ -30,6 +30,7 @@ import { PreventUnsavedChangesGuard } from './_guards/prevent-unsaved-changes.gu
 import { MemberDetailResolver } from './_resolvers/member.detail-resolver';
 import { MemberListResolver } from './_resolvers/member.list-resolver';
 import { MemberEditResolver } from './_resolvers/member.edit-resolver';
+import { TimeAgoPipe } from 'time-ago-pipe';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -47,7 +48,8 @@ export function tokenGetter() {
       MemberCardComponent,
       MemberDetailComponent,
       MemberEditComponent,
-      PhotoEditorComponent
+      PhotoEditorComponent,
+      TimeAgoPipe
    ],
    imports: [
       BrowserModule,

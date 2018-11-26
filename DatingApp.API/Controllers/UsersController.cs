@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using DatingApp.API.Data;
 using DatingApp.API.Dtos;
+using DatingApp.API.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,6 +14,7 @@ namespace DatingApp.API.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
+    [ServiceFilter(typeof(LogUserActivity))]
     public class UsersController : ControllerBase
     {
         private readonly IDatingRepository _repo;
@@ -36,7 +38,16 @@ namespace DatingApp.API.Controllers
         public async Task<IActionResult> GetUser(int id)
         {
             var user = await _repo.GetUser(id);
+            
+            if (user.Introduction == null)
+                user.Introduction = "User not updated yet.";
+            if (user.Interests == null)
+                user.Interests = "User not updated yet.";
+            if (user.LookingFor == null)
+                user.LookingFor = "User not updated yet.";
+            
             var userToReturn = _mapper.Map<UserForDetailedDto>(user);
+
             return Ok(userToReturn);
         }
 
