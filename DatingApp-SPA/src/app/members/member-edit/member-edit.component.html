@@ -32,8 +32,10 @@
           </div>
         </div>
         <div class="card-footer">
-            <button [disabled]="!editForm.dirty" form="editForm" class="btn btn-success btn-block">Save Changes</button>
-          </div>
+            <button [disabled]="!editForm.dirty" form="editForm" class="btn btn-success btn-block">
+              Save Changes
+            </button>
+        </div>
       </div>
     </div>
     <div class="col-sm-8">
@@ -45,7 +47,7 @@
                 <textarea name="introduction" rows="6" class="form-control" 
                   [(ngModel)]="user.introduction"></textarea>
                 <h4>Looking For</h4>
-                <textarea name="looking for" rows="6" class="form-control" 
+                <textarea name="lookingFor" rows="6" class="form-control"
                   [(ngModel)]="user.lookingFor"></textarea>
                 <h4>Interests</h4>
                 <textarea name="interests" rows="6" class="form-control" 
