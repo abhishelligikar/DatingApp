@@ -43,8 +43,8 @@ loggedIn() {
   return !this.jwtHelper.isTokenExpired(token);
 }
 
-register(model: any) {
-  return this.http.post(this.baseUrl + 'register', model);
+register(user: User) {
+  return this.http.post(this.baseUrl + 'register', user);
 }
 
 }
