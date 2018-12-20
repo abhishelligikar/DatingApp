@@ -1,3 +1,4 @@
+import { User } from 'src/app/_models/user';
 import { AuthService } from './../_services/auth.service';
 import { Injectable } from '@angular/core';
 import { Resolve, Router, ActivatedRouteSnapshot } from '@angular/router';
@@ -17,7 +18,7 @@ export class MessagesResolver implements Resolve<Message[]>  {
         private router: Router, private alertify: AlertifyService) {}
 
         resolve(route: ActivatedRouteSnapshot): Observable<Message[]> {
-            return this.userService.getMessages(this.authService.decodedToken.nameId,
+            return this.userService.getMessages(this.authService.decodedToken.nameid,
                 this.pageNumber, this.pageSize, this.messageContainer).pipe(
                 catchError(error => {
                     this.alertify.error('Problem retriving messages');
