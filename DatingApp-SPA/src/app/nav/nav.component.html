@@ -1,19 +1,45 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container">
-      <a class="navbar-brand" [routerLink]="['/home']">Dating App</a>
+      
+      <a class="navbar-brand" [routerLink]="['/home']">
+        <img src="../../assets/DatingApp logo.jpg" width="40" height="40" alt="">
+        Dating App
+      </a>
 
-      <ul *ngIf="loggedIn()" class="navbar-nav mr-auto">
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['/members']">Matches</a>
-        </li>
-        <li class="nav-item"  routerLinkActive="active" >
-          <a class="nav-link" [routerLink]="['/lists']">Lists</a>
-        </li>
-        <li class="nav-item"  routerLinkActive="active" >
-          <a class="nav-link" [routerLink]="['/messages']">Messages</a>
-        </li>
-      </ul>
-    
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul *ngIf="loggedIn()" class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/members']">Matches</a>
+          </li>
+          <li class="nav-item"  routerLinkActive="active" >
+            <a class="nav-link" [routerLink]="['/lists']">Lists</a>
+          </li>
+          <li class="nav-item"  routerLinkActive="active" >
+            <a class="nav-link" [routerLink]="['/messages']">Messages</a>
+          </li>
+        </ul>
+        <!-- <form *ngIf="loggedIn()" class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form> -->
+        <div class="container">
+          <div class="row">
+            <form *ngIf="loggedIn()" class="form">
+              <div class="input-group">
+                  <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" style="padding-left: 20px; border-radius: 40px;" id="mysearch">
+                  <div class="input-group-addon" style="margin-left: -50px; margin-top: 3px; z-index: 0; border-radius: 40px; background-color: transparent; border:none;">
+                    <button class="btn btn-primary btn-sm" type="submit" style="border-radius: 20px;" id="search-btn"><i class="fa fa-search"></i></button>
+                  </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      
       <div *ngIf="loggedIn()" class="dropdown" dropdown>
         <span class="mr-1">
           <img src="{{photoUrl || '../../../../assets/user.png'}}" alt="">
