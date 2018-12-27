@@ -7,3 +7,13 @@ img {
     border: 2px solid white;
     display: inline;
 }
+
+#mysearch:focus + .input-group-addon {
+	z-index: 10;
+}
+
+#search-btn:hover {
+	cursor: pointer;
+	/*color: gold;*/
+	background-color: #ffc107;
+}
